@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Making Epistemic Bias Explicit — PhD Proposal</title>
+  <meta name="description" content="Reveal.js prototype for Minh Davide Ragagni's PhD proposal presentation on epistemic bias in and through Knowledge Engineering.">
+
+  <!-- Reveal.js 5.2.1: CDN for this first prototype. Later we can vendor it for fully offline use. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+
+  <!-- Media-kit typography. Falls back gracefully if the web fonts are unavailable. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <!-- Persistent narrative device: the red dot = a possible bias signal. -->
+  <div id="bias-dot" aria-hidden="true"><span></span></div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 0 — TITLE -->
+      <section class="slide title-slide" data-dot-x="84" data-dot-y="74" data-dot-scale="1.05" data-background-color="#282828">
+        <div class="chrome"><span>PhD Research Proposal</span><span>2026</span></div>
+        <div class="title-grid">
+          <div class="title-copy">
+            <div class="eyebrow">Making</div>
+            <h1>Epistemic<br><em>Bias</em><br>Explicit</h1>
+            <p class="subtitle">in and through<br><strong>Knowledge Engineering</strong></p>
+          </div>
+          <div class="title-mark" aria-hidden="true">
+            <svg viewBox="0 0 360 360" role="img">
+              <g class="burst">
+                <line x1="180" y1="180" x2="180" y2="18"/>
+                <line x1="180" y1="180" x2="274" y2="48"/>
+                <line x1="180" y1="180" x2="342" y2="124"/>
+                <line x1="180" y1="180" x2="337" y2="239"/>
+                <line x1="180" y1="180" x2="273" y2="318"/>
+                <line x1="180" y1="180" x2="176" y2="344"/>
+                <line x1="180" y1="180" x2="78" y2="312"/>
+                <line x1="180" y1="180" x2="17" y2="242"/>
+                <line x1="180" y1="180" x2="27" y2="109"/>
+                <line x1="180" y1="180" x2="93" y2="38"/>
+              </g>
+              <circle cx="180" cy="180" r="7" class="burst-core"/>
+            </svg>
+          </div>
+        </div>
+        <div class="footer-line">
+          <span>Minh Davide Ragagni</span>
+          <span>University of Bologna · University of Pisa</span>
+        </div>
+        <aside class="notes">
+          Open with the thesis title, then: “Before I explain the project, I need to clarify what I mean by bias. The term is doing several different jobs in different literatures.”
+        </aside>
+      </section>
+
+      <!-- 1 — ONE WORD -->
+      <section class="slide centered" data-dot-x="50" data-dot-y="53" data-dot-scale="1.2" data-background-color="#282828">
+        <div class="chrome"><span>01 · What is bias?</span><span></span></div>
+        <h2 class="statement">One word.<br><em>Different concepts.</em></h2>
+        <div class="orbit-labels" aria-hidden="true">
+          <span style="--x:-300px;--y:-115px">tendency</span>
+          <span style="--x:260px;--y:-135px">deviation</span>
+          <span style="--x:-330px;--y:125px">prejudice</span>
+          <span style="--x:300px;--y:115px">inductive choice</span>
+          <span style="--x:-30px;--y:195px">systematicity</span>
+        </div>
+        <div class="source-note">Bueter 2022 · Ferrario et al. 2025</div>
+        <aside class="notes">
+          Bias is not a unitary notion. Bueter explicitly distinguishes different uses of “bias”; Ferrario et al. also review distinct philosophical families and computer-science definitions.
+          [Sources] Bueter, A. (2022), Bias as an epistemic notion, Studies in History and Philosophy of Science 91:307–315. https://doi.org/10.1016/j.shpsa.2021.12.002
+          [Sources] Ferrario, R. et al. (2025), Taming the Sea of Errors: An Ontological Study of Biases in DOLCE. https://doi.org/10.3233/FAIA250484
+        </aside>
+      </section>
+
+      <!-- 2 — FERRARIO: TWO FAMILIES -->
+      <section class="slide" data-auto-animate data-dot-x="27" data-dot-y="48" data-dot-scale="0.85" data-background-color="#282828">
+        <div class="chrome"><span>02 · Two philosophical families</span><span>Ferrario et al.</span></div>
+        <h2 class="top-title">Bias can play <em>different roles.</em></h2>
+        <div class="split-panel">
+          <article class="concept-panel green">
+            <div class="geo-icon choice-icon" aria-hidden="true">
+              <svg viewBox="0 0 220 220">
+                <polygon points="110,16 195,65 195,155 110,204 25,155 25,65"/>
+                <line x1="110" y1="110" x2="61" y2="67"/>
+                <line x1="110" y1="110" x2="159" y2="67"/>
+                <line x1="110" y1="110" x2="110" y2="168"/>
+              </svg>
+            </div>
+            <div>
+              <span class="smallcap">Functional</span>
+              <h3>resolve<br>underdetermination</h3>
+              <p>choose a determinate option<br>among fitting alternatives</p>
+            </div>
+          </article>
+          <div class="vs">/</div>
+          <article class="concept-panel purple">
+            <div class="geo-icon norm-icon" aria-hidden="true">
+              <svg viewBox="0 0 220 220">
+                <polygon points="110,16 195,65 195,155 110,204 25,155 25,65"/>
+                <line x1="48" y1="145" x2="172" y2="75" class="norm-line"/>
+                <circle cx="143" cy="118" r="10" class="off-norm"/>
+              </svg>
+            </div>
+            <div>
+              <span class="smallcap">Norm-theoretic</span>
+              <h3>deviate<br>from a norm</h3>
+              <p>bias is relational to<br>a reference standard</p>
+            </div>
+          </article>
+        </div>
+        <div class="source-note">Ferrario et al. 2025</div>
+        <aside class="notes">
+          Ferrario et al. summarise two major philosophical families. Functional views treat bias as a way of resolving underdetermination; norm-theoretic views treat biases as systematic deviations from a norm.
+          [Sources] Ferrario et al. 2025, section 3.1, especially pp. 66–67. https://doi.org/10.3233/FAIA250484
+        </aside>
+      </section>
+
+      <!-- 3 — STANDARD -->
+      <section class="slide centered" data-auto-animate data-dot-x="68" data-dot-y="53" data-dot-scale="0.9" data-background-color="#282828">
+        <div class="chrome"><span>03 · Relative to what?</span><span>Ferrario et al.</span></div>
+        <div class="standard-stage">
+          <div class="standard-line" data-id="standard"></div>
+          <span class="standard-label label-a">standard A</span>
+          <span class="standard-label label-b">standard B</span>
+          <div class="target-mark" data-id="target"></div>
+        </div>
+        <h2 class="statement compact">The same thing can be<br><em>biased under one standard</em><br>and not another.</h2>
+        <div class="source-note">Ferrario et al. 2025</div>
+        <aside class="notes">
+          Ferrario et al. stress that bias evaluation requires reference to a standard: the same thing can be biased according to one standard but not another. This is the first piece I keep: bias is relational.
+          [Sources] Ferrario et al. 2025, section 4.2, p. 69. https://doi.org/10.3233/FAIA250484
+        </aside>
+      </section>
+
+      <!-- 4 — BUETER WIDE/NARROW -->
+      <section class="slide" data-dot-x="74" data-dot-y="33" data-dot-scale="1" data-background-color="#282828">
+        <div class="chrome"><span>04 · Another distinction</span><span>Bueter</span></div>
+        <h2 class="top-title">How much should <em>“bias”</em> cover?</h2>
+        <div class="continuum">
+          <div class="continuum-line"></div>
+          <div class="continuum-node node-wide">
+            <span class="node-dot"></span>
+            <strong>WIDE</strong>
+            <small>any tendency<br>influencing reasoning</small>
+          </div>
+          <div class="continuum-node node-narrow">
+            <span class="node-dot"></span>
+            <strong>NARROW</strong>
+            <small>systematic deviation<br>from truth / impartial outcome</small>
+          </div>
+        </div>
+        <div class="source-note">Bueter 2022</div>
+        <aside class="notes">
+          Bueter separates a wide use—any tendency that impacts scientific reasoning—from a narrow use—systematic deviation from truth. Neither alone solves the demarcation problem between biased and legitimately value-laden inquiry.
+          [Sources] Bueter 2022, abstract and sections 2–3. https://doi.org/10.1016/j.shpsa.2021.12.002
+        </aside>
+      </section>
+
+      <!-- 5 — BUETER EPISTEMIC MOVE -->
+      <section class="slide centered" data-auto-animate data-dot-x="50" data-dot-y="65" data-dot-scale="1.3" data-background-color="#282828">
+        <div class="chrome"><span>05 · Bueter’s move</span><span>Epistemic, not ontological</span></div>
+        <div class="crossout-wrap">
+          <div class="crossed">WHAT <span>IS</span> BIAS?</div>
+          <div class="cross-line"></div>
+        </div>
+        <h2 class="statement compact">Ask instead whether there are<br><em>good reasons to expect better.</em></h2>
+        <div class="micro-formula">
+          <span>process / artefact</span><span>→</span><span>systematically better?</span>
+        </div>
+        <div class="source-note">Bueter 2022</div>
+        <aside class="notes">
+          Bueter proposes replacing an ontological understanding of bias with an epistemic one. The key question becomes whether there are good reasons to suspect that research could have been systematically better; what counts as “better” is assessed epistemically and contextually.
+          [Sources] Bueter 2022. https://doi.org/10.1016/j.shpsa.2021.12.002
+        </aside>
+      </section>
+
+      <!-- 6 — JANOWICZ -->
+      <section class="slide" data-dot-x="66" data-dot-y="61" data-dot-scale="0.9" data-background-color="#282828">
+        <div class="chrome"><span>06 · In the Semantic Web</span><span>Janowicz et al.</span></div>
+        <h2 class="top-title">Bias is not only <em>in the data.</em></h2>
+        <div class="kg-levels">
+          <div class="hex-card yellow">
+            <svg viewBox="0 0 180 210" aria-hidden="true"><polygon points="90,8 164,51 164,137 90,180 16,137 16,51"/><line x1="16" y1="51" x2="164" y2="137"/><line x1="164" y1="51" x2="16" y2="137"/></svg>
+            <strong>DATA</strong>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="hex-card green">
+            <svg viewBox="0 0 180 210" aria-hidden="true"><polygon points="90,8 164,51 164,137 90,180 16,137 16,51"/><line x1="90" y1="8" x2="90" y2="180"/><line x1="16" y1="94" x2="164" y2="94"/></svg>
+            <strong>SCHEMA</strong>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="hex-card purple">
+            <svg viewBox="0 0 180 210" aria-hidden="true"><polygon points="90,8 164,51 164,137 90,180 16,137 16,51"/><path d="M36 126 L90 65 L143 126"/><circle cx="90" cy="65" r="7"/></svg>
+            <strong>INFERENCE</strong>
+          </div>
+        </div>
+        <p class="bottom-prompt">Different layers. Different mechanisms. Different consequences.</p>
+        <div class="source-note">Janowicz et al. 2018</div>
+        <aside class="notes">
+          Janowicz et al. discuss bias in Linked Data, ontologies and reasoning services, highlighting distinct levels including data, schema and inference. This matters for my project because KE produces and transforms more than one kind of artefact.
+          [Sources] Janowicz, K. et al. (2018), Debiasing Knowledge Graphs: Why Female Presidents are not like Female Popes. ISWC Posters & Demos. https://ceur-ws.org/Vol-2180/ISWC_2018_Outrageous_Ideas_paper_17.pdf
+        </aside>
+      </section>
+
+      <!-- 7 — RUSSO/VIDAL -->
+      <section class="slide" data-dot-x="74" data-dot-y="50" data-dot-scale="0.75" data-background-color="#282828">
+        <div class="chrome"><span>07 · Making bias explicit</span><span>Russo & Vidal</span></div>
+        <h2 class="top-title">Bias can also become<br><em>machine-readable information.</em></h2>
+        <div class="docbias-stage">
+          <div class="pipeline-mini">
+            <div class="mini-box">dataset</div><div class="mini-arrow">→</div><div class="mini-box">task</div><div class="mini-arrow">→</div><div class="mini-box">model</div>
+          </div>
+          <div class="document-node">
+            <svg viewBox="0 0 230 260" aria-hidden="true">
+              <path d="M44 20 H145 L190 66 V235 H44 Z"/>
+              <path d="M145 20 V66 H190"/>
+              <line x1="70" y1="105" x2="164" y2="105"/>
+              <line x1="70" y1="140" x2="164" y2="140"/>
+              <line x1="70" y1="175" x2="138" y2="175"/>
+            </svg>
+          </div>
+          <div class="doc-tags">
+            <span>bias</span><span>measure</span><span>task</span><span>score</span><span>threshold</span>
+          </div>
+        </div>
+        <div class="source-note">Russo & Vidal 2025 · Doc-BiasO</div>
+        <aside class="notes">
+          Russo and Vidal's Doc-BiasO is a useful representational precedent: it provides an integrated vocabulary for biases and their measures and reuses ML/AI vocabularies to support documentation and interoperability. My thesis is not about ML-pipeline documentation, but this shows that bias-related information can be formalised and made reusable.
+          [Sources] Russo, M. & Vidal, M.-E. (2025), Towards an Ontology-Driven Approach to Document Bias, JAIR 83. https://doi.org/10.1613/jair.1.19388
+        </aside>
+      </section>
+
+      <!-- 8 — THE KE PROBLEM -->
+      <section class="slide" data-auto-animate data-dot-x="34" data-dot-y="52" data-dot-scale="0.9" data-background-color="#282828">
+        <div class="chrome"><span>08 · But Knowledge Engineering…</span><span></span></div>
+        <h2 class="top-title">…necessarily <em>transforms knowledge.</em></h2>
+        <div class="ke-chain" data-id="ke-chain">
+          <div class="artifact-shape source-shape"><span>source</span></div>
+          <div class="chain-arrow">→</div>
+          <div class="artifact-shape cq-shape"><span>CQs</span></div>
+          <div class="chain-arrow">→</div>
+          <div class="artifact-shape ontology-shape"><span>ontology</span></div>
+          <div class="chain-arrow">→</div>
+          <div class="artifact-shape kg-shape"><span>KG</span></div>
+        </div>
+        <div class="influence-cloud">
+          <span>purpose</span><span>expertise</span><span>perspective</span><span>abstraction</span><span>background knowledge</span>
+        </div>
+        <div class="double-negation fragment fade-up">
+          <span>difference ≠ bias</span>
+          <span>influence ≠ bias</span>
+        </div>
+        <aside class="notes">
+          This is where the philosophical distinctions become a KE problem. KE requires selection, abstraction, interpretation and modelling decisions. Differences and influences cannot be equated with epistemic bias. This is the demarcation problem I bring into KE.
+          [Source: PhD proposal] Knowledge Engineering necessarily involves interpretation and modelling decisions; different representations may legitimately reflect purposes, viewpoints, granularity, knowledge or commitments.
+        </aside>
+      </section>
+
+      <!-- 9 — MY PROJECT -->
+      <section class="slide project-entry" data-auto-animate data-dot-x="79" data-dot-y="56" data-dot-scale="1.1" data-background-color="#282828">
+        <div class="chrome"><span>09 · My project</span><span>Making epistemic bias explicit</span></div>
+        <h2 class="project-thesis">Bias is not simply <em>observed.</em><br>It is <strong>qualified.</strong></h2>
+        <div class="qualification-flow">
+          <div class="q-step yellow"><span>01</span><b>influences<br>& conditions</b></div>
+          <div class="q-arrow">→</div>
+          <div class="q-step green"><span>02</span><b>knowledge<br>transformation</b></div>
+          <div class="q-arrow">→</div>
+          <div class="q-step pink"><span>03</span><b>epistemically relevant<br>phenomenon</b></div>
+          <div class="q-arrow">→</div>
+          <div class="q-step purple"><span>04</span><b>contextual<br>assessment</b></div>
+          <div class="q-arrow">→</div>
+          <div class="q-step outline"><span>05</span><b>epistemic-bias<br>qualification</b></div>
+        </div>
+        <p class="definition-line">well-grounded reasons to suspect it could have been <em>systematically better</em> with respect to a relevant epistemic criterion.</p>
+        <div class="source-note">Adapted from Bueter 2022 → epistemic bias in KE</div>
+        <aside class="notes">
+          This is the entry point to the PhD proper. My adapted conception: a process or artefact may be qualified as epistemically biased when, in a given assessment context, there are well-grounded reasons to suspect that the way knowledge was selected, produced, transformed, represented, interpreted or evaluated could have been systematically better with respect to a relevant epistemic criterion. The following slides will unpack phenomena, indicators, evidence, criteria, context and qualification.
+          [Source: PhD Research Proposal, 2026] Research Problem and Conceptual Framework.
+          [Sources] Bueter 2022. https://doi.org/10.1016/j.shpsa.2021.12.002
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>
